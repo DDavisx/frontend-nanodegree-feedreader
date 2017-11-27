@@ -1,0 +1,11 @@
+{
+  "name": "Feed Reader Testing Project",
+  "version": "1.0",
+  "description": "Create Tests around functionality for the Feed Reader",
+  "dependencies": {
+    "cli": "^1.0.1",
+    "grunt": "^1.0.1",
+    "grunt-connect": "^0.2.0",
+    "grunt-contrib-connect": "^1.0.2"
+  }
+}
