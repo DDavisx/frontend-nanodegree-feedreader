@@ -27,8 +27,7 @@ $(function() {
   describe('The menu', function() {
 
     it('is hidden by default.', function() {
-      var classes = $('body').attr('class');
-      expect(classes).toContain('menu-hidden');
+      expect($('body').hasClass('menu-hidden')).toBeTruthy();
     });
 
     it('when clicked shows and hides the menu.', function() {
@@ -36,28 +35,22 @@ $(function() {
       var menuicon = $('.menu-icon-link');
 
       menuicon.click();
-      var classAttribute = body.attr('class');
-      expect(classAttribute).not.toContain('menu-hidden');
+      expect(body.hasClass('menu-hidden')).toBeFalsy();
 
       menuicon.click();
-      classAttribute = body.attr('class');
-      expect(classAttribute).toContain('menu-hidden');
+      expect(body.hasClass('menu-hidden')).toBeTruthy();
     });
   });
 
   describe('Initial Entries', function() {
     var empty;
     beforeEach(function(done) {
-      var feedLoadCallback = function() {
-        done();
-      };
-      loadFeed(0, feedLoadCallback);
+      loadFeed(0, done);
     });
 
-    it("should load feed asynchronously with at least 1 entry", function(done) {
-      var emtries = $('.entry');
+    it("should load feed asynchronously with at least 1 entry", function() {
+      var emtries = $('.feed .entry');
       expect(emtries.length).toBeGreaterThan(0);
-      done();
     });
   });
 
